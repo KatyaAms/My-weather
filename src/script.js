@@ -1,5 +1,6 @@
 let actualTime = document.querySelector(".currentTime");
 
+// days
 let days = [
   "Sunday",
   "Monday",
