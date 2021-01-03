@@ -63,12 +63,55 @@ function showTemperature(response) {
   console.log(response);
 
   let showClouds = document.querySelector(".clouds");
-  let clouds = response.data.weather[0].main;
+  let clouds = response.data.weather[0].description;
+
+  let localTime = document.querySelector(".currentTime");
+  let timeZone = response.data.timezone;
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let now = new Date(
+    Date.now() +
+      (`${timeZone}` - new Date().getTimezoneOffset() * -1 * 60) * 1000
+  );
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let month1 = months[now.getMonth()];
+  let day1 = days[now.getDay()];
+  let date = now.getDate();
 
   showTemperature.innerHTML = `${temperature}`;
   showClouds.innerHTML = `${clouds}`;
   showHumidity.innerHTML = `Humidity: ${humidity}%`;
   showWind.innerHTML = `Wind: ${wind} km/h`;
+  localTime.innerHTML = `${hours}:${minutes} ${day1}, ${date} ${month1} `;
 }
 
 let searchInput = document.querySelector("form");

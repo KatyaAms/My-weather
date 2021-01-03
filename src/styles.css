@@ -16,6 +16,9 @@ h5 {
   padding: 0;
   margin: 1px 0;
 }
+h5::first-letter {
+  text-transform: capitalize;
+}
 ul {
   list-style: none;
   padding: 0;
