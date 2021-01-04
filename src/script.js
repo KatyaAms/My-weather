@@ -10,7 +10,6 @@ function handleSubmit(event) {
   search(city);
 }
 function showTemperature(response) {
-  console.log(response);
   document.querySelector(".city").innerHTML = response.data.name;
 
   let showTemperature = document.querySelector(".number");
