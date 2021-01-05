@@ -7,7 +7,7 @@ a,
   color: white;
 }
 h1 {
-  font-size: 50px;
+  font-size: 60px;
 }
 a.hover {
   color: blue;
@@ -16,21 +16,25 @@ h5 {
   padding: 0;
   margin: 1px 0;
 }
-h5::first-letter {
-  text-transform: capitalize;
-}
 ul {
   list-style: none;
   padding: 0;
   margin: 10px 0;
 }
+h5::first-letter {
+  text-transform: capitalize;
+}
 img {
   max-width: 100%;
 }
-button {
+
+#current-location-button {
   margin-top: 5px;
-  margin-right: 15px;
 }
+button {
+  margin-top: 0.1px;
+}
+
 .number {
   font-size: 65px;
 }
@@ -43,22 +47,12 @@ button {
 .city {
   text-transform: capitalize;
 }
-.weatherApp {
+#weatherApp {
   border: 1px solid whitesmoke;
   padding: 20px;
   background-size: cover;
   background-repeat: no-repeat;
   margin: 20px auto;
   max-width: 700px;
-  border-radius: 5.5px;
-}
-.sign {
-  color: black;
-  text-align: center;
-  font-size: 13px;
-}
-.linkedin,
-.github,
-.netlify {
-  color: #2d5580;
+  border-radius: 5px;
 }

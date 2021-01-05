@@ -10,6 +10,7 @@ function handleSubmit(event) {
   search(city);
 }
 function showTemperature(response) {
+  console.log(response);
   document.querySelector(".city").innerHTML = response.data.name;
 
   let showTemperature = document.querySelector(".number");
@@ -82,7 +83,7 @@ function showTemperature(response) {
     "02n": `https://windowscustomization.com/2018/12/02/black-a-night-sky-4k/`,
     "03d": `https://i.gifer.com/hC1.gif`,
     "03n": `https://images.squarespace-cdn.com/content/v1/52e1aa3fe4b05f4de5ac831f/1553753096230-4005AD15ILZF4H0KV7MO/ke17ZwdGBToddI8pDm48kDBT_XcJ-mJ7qRE6Ci7Fa1JZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVEzUcJ5LR_qoMDyiSqbrzF4SWrILhrGJBQV6_jucxeimSb8BodarTVrzIWCp72ioWw/tenor.gif?format=500w`,
-    "04d": `https://qph.fs.quoracdn.net/main-qimg-5c42f18e33aef67778676810ccdef977`,
+    "04d": `https://i.imgur.com/xlx95Wg.gif`,
     "04n": `https://i.gifer.com/1ezS.gif`,
     "09d": `https://thumbs.gfycat.com/CompleteWideeyedFirecrest-mobile.mp4`,
     "09n": `https://i.pinimg.com/originals/cc/f2/d3/ccf2d3afe3b30a7d317037f2a87b4e4a.gif`,
@@ -138,4 +139,4 @@ function myPosition(position) {
   axios.get(`${geoUrl}&&appid=&{apiKey}`).then(showTemperature);
 }
 
-search("Amsterdam");
+search("London");
