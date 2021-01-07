@@ -2,6 +2,53 @@ function search(city) {
   let apiKey = "cea4eaec36371a8d64cf80cfa988df3d";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
   axios.get(`${apiUrl}&&appid=${apiKey}`).then(showTemperature);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}`).then(displayForecast);
+}
+
+//function for forecast time
+function timeofForecast(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  let forecast = null;
+  forecastElement.innerHTML = null;
+  /*
+  //I try to calculate F temp and include in forecast
+  ForecastcelsiusTemperatureMax = forecast.main.temp_max;
+  ForecastcelsiusTemperatureMin = forecast.main.temp_min;
+  let forecastUnitMax = document.querySelector("#max");
+  let fahrenheitTemperatureMax = (ForecastcelsiusTemperatureMax * 9) / 5 + 32;
+  forecastUnitMax.innerHTML = Math.round(fahrenheitTemperatureMax);
+*/
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+  <div class="col-2">
+    <h6>${timeofForecast(forecast.dt * 1000)}</h6>
+    <img src="http://openweathermap.org/img/wn/${
+      forecast.weather[0].icon
+    }@2x.png" alt="icon" class="icon"></img>
+    <div class="weather-forecast">
+      <strong id="max">${Math.round(
+        forecast.main.temp_max
+      )}°</strong> / ${Math.round(forecast.main.temp_min)}°
+    </div>
+  </div>
+  `;
+  }
 }
 
 function handleSubmit(event) {
@@ -10,7 +57,6 @@ function handleSubmit(event) {
   search(city);
 }
 function showTemperature(response) {
-  console.log(response);
   document.querySelector(".city").innerHTML = response.data.name;
 
   let showTemperature = document.querySelector(".number");

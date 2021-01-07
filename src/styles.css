@@ -26,6 +26,10 @@ img {
   max-width: 100%;
 }
 
+.col-2 {
+  text-align: center;
+}
+
 #current-location-button {
   margin-top: 5px;
 }
