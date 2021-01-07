@@ -121,12 +121,16 @@ function myPosition(position) {
 
 function temperature(event) {
   event.preventDefault();
+  seeTemperature.classList.add("active");
+  seeTemperature2.classList.remove("active");
   let clickUnit = document.querySelector(".number");
   clickUnit.innerHTML = Math.round(celsiusTemperature);
 }
 
 function temperature2(event) {
   event.preventDefault();
+  seeTemperature2.classList.add("active");
+  seeTemperature.classList.remove("active");
   let clickUnit = document.querySelector(".number");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   clickUnit.innerHTML = Math.round(fahrenheitTemperature);
@@ -137,10 +141,10 @@ let celsiusTemperature = null;
 let searchInput = document.querySelector("form");
 searchInput.addEventListener("submit", handleSubmit);
 
-let seeTemperature2 = document.querySelector(".fahrenheit");
+let seeTemperature2 = document.querySelector("#fahrenheit");
 seeTemperature2.addEventListener("click", temperature2);
 
-let seeTemperature = document.querySelector(".celsius");
+let seeTemperature = document.querySelector("#celsius");
 seeTemperature.addEventListener("click", temperature);
 
 search("London");
