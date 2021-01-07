@@ -14,7 +14,8 @@ function showTemperature(response) {
   document.querySelector(".city").innerHTML = response.data.name;
 
   let showTemperature = document.querySelector(".number");
-  let temperature = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+  let temperature = Math.round(celsiusTemperature);
 
   let showWind = document.querySelector(".wind");
   let wind = response.data.wind.speed;
@@ -34,7 +35,6 @@ function showTemperature(response) {
   let timeZone = response.data.timezone;
   let localTime = document.querySelector(".currentTime");
 
-  // iconElement.setAttribute(   "src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   let days = [
     "Sunday",
     "Monday",
@@ -103,26 +103,6 @@ function showTemperature(response) {
   ).style.backgroundImage = `url(${background})`;
 }
 
-let searchInput = document.querySelector("form");
-searchInput.addEventListener("submit", handleSubmit);
-
-function temperature(event) {
-  event.preventDefault();
-  let clickUnit = document.querySelector(".number");
-  clickUnit.innerHTML = `2`;
-}
-
-let seeTemperature = document.querySelector(".celsius");
-seeTemperature.addEventListener("click", temperature);
-
-function temperature2(event) {
-  event.preventDefault();
-  let clickUnit = document.querySelector(".number");
-  clickUnit.innerHTML = `35,6`;
-}
-let seeTemperature2 = document.querySelector(".fahrenheit");
-seeTemperature2.addEventListener("click", temperature2);
-
 let currentLocation = document.querySelector("#current-location-button");
 currentLocation.addEventListener("click", myLocation);
 
@@ -138,5 +118,29 @@ function myPosition(position) {
 
   axios.get(`${geoUrl}&&appid=&{apiKey}`).then(showTemperature);
 }
+
+function temperature(event) {
+  event.preventDefault();
+  let clickUnit = document.querySelector(".number");
+  clickUnit.innerHTML = Math.round(celsiusTemperature);
+}
+
+function temperature2(event) {
+  event.preventDefault();
+  let clickUnit = document.querySelector(".number");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  clickUnit.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let celsiusTemperature = null;
+
+let searchInput = document.querySelector("form");
+searchInput.addEventListener("submit", handleSubmit);
+
+let seeTemperature2 = document.querySelector(".fahrenheit");
+seeTemperature2.addEventListener("click", temperature2);
+
+let seeTemperature = document.querySelector(".celsius");
+seeTemperature.addEventListener("click", temperature);
 
 search("London");
