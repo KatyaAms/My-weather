@@ -123,24 +123,24 @@ function showTemperature(response) {
   localTime.innerHTML = `${hours}:${minutes} ${day1}, ${date} ${month1} `;
 
   let urls = {
-    "01d": "images/sun 01d.jpg",
-    "01n": "images/night 01n.gif",
+    "01d": "images/01d.gif",
+    "01n": "images/01n.gif",
     "02d": "images/02d.jpg",
     "02n": "images/02n.gif",
     "03d": "images/03d.gif",
     "03n": "images/03n.gif",
-    "04d": `images/04d.gif`,
-    "04n": `images/04n.gif`,
-    "09d": `https://thumbs.gfycat.com/CompleteWideeyedFirecrest-mobile.mp4`,
-    "09n": `https://i.pinimg.com/originals/cc/f2/d3/ccf2d3afe3b30a7d317037f2a87b4e4a.gif`,
-    "10d": `https://i.pinimg.com/originals/34/97/4e/34974e9d7f1585429c235b17379be7fe.gif`,
-    "10n": `https://i.pinimg.com/originals/3b/c5/78/3bc57817a5901f3598795a29a7ca0845.gif`,
-    "11d": `https://31.media.tumblr.com/6970e70662adaa802666c22454b3cedc/tumblr_mzi9h6iOQ71r4zr2vo1_r1_500.gif`,
-    "11n": `https://thumbs.gfycat.com/ClearWelllitEmu-max-1mb.gif`,
-    "13d": `https://media1.tenor.com/images/f490706632dbe4a6385c4f7d549ae2d3/tenor.gif?itemid=13000113`,
-    "13n": `https://i.pinimg.com/originals/1d/92/5c/1d925c2d326f57d76837877d9b8f2356.gif`,
-    "50d": `https://i.gifer.com/1PSm.gif`,
-    "50n": `https://thumbs.gfycat.com/DeliciousUnfortunateCockroach-small.gif`,
+    "04d": "images/04d.gif",
+    "04n": "images/04n.gif",
+    "09d": "images/09d.gif",
+    "09n": "images/09n.gif",
+    "10d": "images/10d.gif",
+    "10n": "images/10n.gif",
+    "11d": "images/11d.gif",
+    "11n": "images/11n.gif",
+    "13d": "images/13d.gif",
+    "13n": "images/13n.gif",
+    "50d": "images/50d.gif",
+    "50n": "images/50n.gif",
   };
 
   let background = urls[response.data.weather[0].icon];
