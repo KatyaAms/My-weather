@@ -130,7 +130,7 @@ function showTemperature(response) {
     "03d": "images/03d.gif",
     "03n": "images/03n.gif",
     "04d": `images/04d.gif`,
-    "04n": `https://i.gifer.com/1ezS.gif`,
+    "04n": `images/04n.gif`,
     "09d": `https://thumbs.gfycat.com/CompleteWideeyedFirecrest-mobile.mp4`,
     "09n": `https://i.pinimg.com/originals/cc/f2/d3/ccf2d3afe3b30a7d317037f2a87b4e4a.gif`,
     "10d": `https://i.pinimg.com/originals/34/97/4e/34974e9d7f1585429c235b17379be7fe.gif`,
@@ -163,6 +163,10 @@ function myPosition(position) {
   let geoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
   axios.get(`${geoUrl}&&appid=&{apiKey}`).then(showTemperature);
+  //solution for forecast
+
+  apiForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiForecastUrl).then(displayForecast);
 }
 
 function temperature(event) {
