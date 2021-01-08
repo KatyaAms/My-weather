@@ -123,13 +123,13 @@ function showTemperature(response) {
   localTime.innerHTML = `${hours}:${minutes} ${day1}, ${date} ${month1} `;
 
   let urls = {
-    "01d": `https://gfycat.com/perfectmemorablealaskanhusky`,
-    "01n": `https://qph.fs.quoracdn.net/main-qimg-f7807eda4d877f7da8e616636e04d273`,
-    "02d": `https://gfycat.com/acrobaticresponsibleasianelephant`,
-    "02n": `https://windowscustomization.com/2018/12/02/black-a-night-sky-4k/`,
-    "03d": `https://i.gifer.com/hC1.gif`,
-    "03n": `https://images.squarespace-cdn.com/content/v1/52e1aa3fe4b05f4de5ac831f/1553753096230-4005AD15ILZF4H0KV7MO/ke17ZwdGBToddI8pDm48kDBT_XcJ-mJ7qRE6Ci7Fa1JZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVEzUcJ5LR_qoMDyiSqbrzF4SWrILhrGJBQV6_jucxeimSb8BodarTVrzIWCp72ioWw/tenor.gif?format=500w`,
-    "04d": `https://i.imgur.com/xlx95Wg.gif`,
+    "01d": "images/sun 01d.jpg",
+    "01n": "images/night 01n.gif",
+    "02d": "images/02d.jpg",
+    "02n": "images/02n.gif",
+    "03d": "images/03d.gif",
+    "03n": "images/03n.gif",
+    "04d": `images/04d.gif`,
     "04n": `https://i.gifer.com/1ezS.gif`,
     "09d": `https://thumbs.gfycat.com/CompleteWideeyedFirecrest-mobile.mp4`,
     "09n": `https://i.pinimg.com/originals/cc/f2/d3/ccf2d3afe3b30a7d317037f2a87b4e4a.gif`,
@@ -146,7 +146,7 @@ function showTemperature(response) {
   let background = urls[response.data.weather[0].icon];
   document.getElementById(
     "weatherApp"
-  ).style.backgroundImage = `url(${background})`;
+  ).style.backgroundImage = `url('${background}')`;
 }
 
 let currentLocation = document.querySelector("#current-location-button");
