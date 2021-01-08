@@ -9,6 +9,7 @@ function search(city) {
 //function for forecast time
 function timeofForecast(timestamp) {
   let date = new Date(timestamp);
+
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -25,6 +26,8 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecast = null;
   forecastElement.innerHTML = null;
+
+  //let timeZone = response.data.city.timezone;
   /*
   //I try to calculate F temp and include in forecast
   ForecastcelsiusTemperatureMax = forecast.main.temp_max;
@@ -35,9 +38,12 @@ function displayForecast(response) {
 */
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
+    console.log(forecast);
+
     forecastElement.innerHTML += `
   <div class="col-2">
-    <h6>${timeofForecast(forecast.dt * 1000)}</h6>
+    <h6>${timeofForecast(forecast.dt * 1000)}
+     </h6>
     <img src="http://openweathermap.org/img/wn/${
       forecast.weather[0].icon
     }@2x.png" alt="icon" class="icon"></img>
@@ -161,10 +167,8 @@ function myPosition(position) {
   let lon = position.coords.longitude;
   let apiKey = "cea4eaec36371a8d64cf80cfa988df3d";
   let geoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-
   axios.get(`${geoUrl}&&appid=&{apiKey}`).then(showTemperature);
-  //solution for forecast
-
+  //solution for a forecast in current location
   apiForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(apiForecastUrl).then(displayForecast);
 }
